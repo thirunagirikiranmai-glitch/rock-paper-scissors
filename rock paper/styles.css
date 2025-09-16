@@ -1,0 +1,113 @@
+
+  /* Cyberpunk background with animated gradient */
+body {
+  font-family: "Orbitron", sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(270deg, #0f0c29, #302b63, #24243e);
+  background-size: 600% 600%;
+  animation: bgShift 15s ease infinite;
+  color: #fff;
+}
+
+/* Background animation */
+@keyframes bgShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Title */
+h1 {
+  font-size: 3.5rem;
+  letter-spacing: 4px;
+  margin-bottom: 40px;
+  background: linear-gradient(90deg, #ff00cc, #3333ff, #00ffcc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 20px rgba(255,255,255,0.3);
+  animation: glowText 2s ease-in-out infinite alternate;
+}
+
+/* Glowing text animation */
+@keyframes glowText {
+  from { text-shadow: 0 0 10px #ff00cc; }
+  to { text-shadow: 0 0 30px #00ffcc; }
+}
+
+/* Choices container with glassmorphism */
+.choices {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 40px;
+  border-radius: 25px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 0 30px rgba(0,0,0,0.5);
+}
+
+/* Neon buttons */
+button {
+  padding: 15px 40px;
+  margin: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  border: none;
+  border-radius: 50px;
+  color: #fff;
+  background: linear-gradient(90deg, #ff00cc, #3333ff);
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 0 15px rgba(255,0,200,0.6);
+}
+
+/* Button glow effect */
+button::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.25), transparent 70%);
+  transform: rotate(25deg);
+  transition: opacity 0.3s ease;
+  opacity: 0;
+}
+
+button:hover::before {
+  opacity: 1;
+}
+
+button:hover {
+  transform: scale(1.15);
+  box-shadow: 0 0 30px rgba(0,255,200,0.9);
+  background: linear-gradient(90deg, #00ffcc, #ff00ff);
+}
+
+/* Result box */
+#result {
+  margin-top: 30px;
+  padding: 15px 25px;
+  border-radius: 15px;
+  font-size: 22px;
+  font-weight: bold;
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
+  color: #ffdf6c;
+  box-shadow: 0 0 15px rgba(0,0,0,0.4);
+  animation: pulse 2s infinite alternate;
+}
+
+/* Result glowing animation */
+@keyframes pulse {
+  from { box-shadow: 0 0 10px rgba(255,215,100,0.6); }
+  to { box-shadow: 0 0 25px rgba(255,215,100,1); }
+}
